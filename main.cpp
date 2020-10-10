@@ -130,7 +130,7 @@ int main(){
             case 10:
                 printf("\n----ListInsert功能待实现！\n");
                 printf("请输入要添加的位置和元素（以一个空格隔开）：");
-                scanf("%d%d", &e, &i);
+                scanf("%d%d", &i, &e);
                 if ((flag = ListInsert(L, i ,e))==OK) printf("元素插入成功\n");
                 else if (flag == ERROR) printf("该位置不正确\n");
                 else printf("该线性表不存在！\n");
