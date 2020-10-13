@@ -37,6 +37,7 @@ typedef int ElemType; //数据元素类型定义
 int main(){
     SqList L;  int op=1; int flag; ElemType pre;
     LISTS LISTS;
+    setbuf(stdout, NULL);
     char FileName[200];
     char ListName[100];
     while(op){
@@ -44,18 +45,18 @@ int main(){
         printf("\n\n");
         printf("      Menu for Linear Table On Sequence Structure \n");
         printf("-------------------------------------------------\n");
-        printf("    	  1. InitList       7. LocateElem\n");
-        printf("    	  2. DestroyList    8. PriorElem\n");
-        printf("    	  3. ClearList      9. NextElem \n");
-        printf("    	  4. ListEmpty      10. ListInsert\n");
-        printf("    	  5. ListLength     11. ListDelete\n");
-        printf("    	  6. GetElem        12. ListTraverse\n");
-        printf("    	  13. SaveList      14. LoadList\n");
-        printf("       15. AddList       16. RemoveList\n");
-        printf("       17. LocateList    18. ShowLists\n");
-        printf("    	  0. Exit\n");
+        printf("    	  1. InitList        2. DestroyList  \n");
+        printf("    	  3. ClearList       4. ListEmpty\n");
+        printf("    	  5. ListLength      6. GetElem   \n");
+        printf("    	  7. LocateElem      8. PriorElem\n");
+        printf("    	  9. NextElem        10. ListInsert\n");
+        printf("    	  11. ListDelete     12. ListTraverse\n");
+        printf("    	  13. SaveList       14. LoadList\n");
+        printf("          15. Add_to_List    16. RemoveList\n");
+        printf("          17. LocateList     18. ShowLists\n");
+        printf("    	  19. listsort       0. Exit\n");
         printf("-------------------------------------------------\n");
-        printf("    请选择你的操作[0~12]:");
+        printf("    请选择你的操作[0~19]:");
         scanf("%d",&op);
         switch(op){
             case 1:
@@ -104,7 +105,8 @@ int main(){
                 printf("\n----LocateElem功能待实现！\n");
                 printf("请输入要确定位置的元素：");
                 scanf("%d",&e);
-                if ((flag = LocateElem(L, e))==OK) printf("元素位置为：%d\n", e);
+                flag = LocateElem(L, e);
+                if (flag>0) printf("元素位置为：%d\n", flag);
                 else if (flag == ERROR) printf("该元素不存在！\n");
                 else printf("该线性表不存在！\n");
                 getchar();getchar();
@@ -163,16 +165,14 @@ int main(){
                 printf("请输入文件路径：");
                 scanf("%s", FileName);
                 if((flag = LoadList(L, FileName)) == OK ) printf("加载成功！\n");
-                else printf("线性表不存在");
+                else printf("线性表已存在");
                 getchar();getchar();
                 break;
             case 15:
-                printf("\n----AddList功能待实现！\n");
+                printf("\n----Add_to_List功能待实现！\n");
                 printf("请输入列表名字：");
                 scanf("%s", ListName);
-                printf("请输入要添加的列表所在的文件路径");
-                scanf("%s", FileName);
-                flag=AddList(LISTS, ListName, FileName);
+                flag=Add_to_List(LISTS, ListName, L);
                 if (flag) printf("添加成功！\n");
                 getchar();getchar();
                 break;
@@ -180,7 +180,9 @@ int main(){
                 printf("\n----RemoveList功能待实现！\n");
                 printf("请输入要删除的线性表名字：");
                 scanf("%s", ListName);
-                RemoveList(LISTS, ListName);
+                flag = RemoveList(LISTS, ListName);
+                if (flag) printf("删除成功！");
+                else printf("删除失败！");
                 getchar();getchar();
                 break;
             case 17:
@@ -192,8 +194,13 @@ int main(){
                 getchar();getchar();
                 break;
             case 18:
-                printf("show list\n");
+                printf("----show list\n");
                 showlist(LISTS);
+                getchar();getchar();
+                break;
+            case 19:
+                printf("----sort list\n");
+                Merge_sort(L.elem, 0,L.length-1);
                 getchar();getchar();
                 break;
             case 0:

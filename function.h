@@ -1,6 +1,6 @@
 #include<cstring>
 #include "dev.h"
-
+#include <cstdlib>
 status InitList(SqList& L)
 // 线性表L不存在，构造一个空的线性表，返回OK，否则返回INFEASIBLE。
 {
@@ -280,8 +280,8 @@ status  LoadList(SqList &L,char FileName[])
 }
 
 
-status AddList(LISTS &Lists,char ListName[], char FileName[])
-// 只需要在Lists中增加一个名称为ListName的空线性表，从L文件中导入数据
+status Add_to_List(LISTS &Lists,char ListName[], SqList L)
+// 在Lists中增加一个名称为ListName的空线性表，从L文件中导入数据
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
@@ -293,15 +293,11 @@ status AddList(LISTS &Lists,char ListName[], char FileName[])
 
 
     //添加数据
-    FILE *fp;
-    fp = fopen(FileName, "r");
-    int i=0;
-    while (!feof(fp)){
-        int a = fgetc(fp);
-        if(feof(fp)) break;
-        ListInsert(Lists.elem[Lists.length].L, i++, a);
+    Lists.elem[Lists.length].L.length= L.length;
+    Lists.elem[Lists.length].L.listsize= L.listsize;
+    for (int i=0;i<L.length;i++){
+        Lists.elem[Lists.length].L.elem[i]= L.elem[i];
     }
-    fclose(fp);
     Lists.length ++;
     return 1;
     /********** End **********/
@@ -349,6 +345,63 @@ int LocateList(LISTS Lists,char ListName[])
 void showlist(LISTS LISTS){
     printf("there are %d lists\n", LISTS.length);
     for(int i=0;i<LISTS.length;i++){
-        printf("%s\n", LISTS.elem[i].name);
+        printf("%s:", LISTS.elem[i].name);
+        for (int j = 0; j < LISTS.elem[i].L.length; ++j) {
+            printf("%d ",LISTS.elem[i].L.elem[j]);
+        }
+        printf("\n");
+
     }
 }
+
+void merge(ElemType *arr, int start, int mid, int end){
+    int i=start,j=mid+1,k=0;
+    ElemType *temp;
+    temp = (ElemType *)malloc(sizeof(ElemType) * (end+1));  //暂时存储新数组
+    while (i<=mid&&j<=end){
+        if (arr[i]<arr[j]){
+            temp[k] = arr[i];
+            k++;i++;
+            continue;
+        }
+        else if (arr[i]==arr[j]){
+            temp[k] = arr[i];
+            k++;
+            temp[k] = arr[j];
+            k++;
+            i++;j++;
+            continue;
+        }
+        else{
+            temp[k] = arr[j];
+            k++;j++;
+            continue;
+        }
+    }
+
+    while (i<=mid) {
+        temp[k] = arr[i];
+        k++;
+        i++;
+    }
+
+    while (j<=end){
+        temp[k] = arr[j];
+        k++;j++;
+    }
+
+    for (j=0, i=start;j<k;j++,i++){
+        arr[i] = temp[j];
+    }
+}
+
+
+void Merge_sort(ElemType *arr, int start, int end){
+    if (start>=end)
+        return;  //结束条件
+    int mid = (start+end)/2;
+    Merge_sort(arr, start, mid);
+    Merge_sort(arr, mid+1, end);
+    merge(arr, start, mid, end);
+}
+
