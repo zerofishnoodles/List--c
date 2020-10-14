@@ -287,7 +287,7 @@ status Add_to_List(LISTS &Lists,char ListName[], SqList L)
     /********** Begin *********/
     //初始化
     strcpy(Lists.elem[Lists.length].name, ListName);
-    Lists.elem[Lists.length].L.elem = (ElemType *)malloc(sizeof(ElemType)*LIST_INIT_SIZE);
+    Lists.elem[Lists.length].L.elem = (ElemType *)malloc(sizeof(ElemType)*L.length);
     Lists.elem[Lists.length].L.length = 0;
     Lists.elem[Lists.length].L.listsize = LIST_INIT_SIZE;
 
