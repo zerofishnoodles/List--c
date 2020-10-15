@@ -355,10 +355,17 @@ void showlist(LISTS LISTS){
 }
 
 void merge(ElemType *arr, int start, int mid, int end){
+    /*
+     * function：对两个数组进行排序，两个数组连续存储，由mid分开
+     * input:
+     * arr: 待排序的数组
+     * mid：数组中间位置元素的下标
+     * end：数组末尾元素的下标
+     */
     int i=start,j=mid+1,k=0;
     ElemType *temp;
     temp = (ElemType *)malloc(sizeof(ElemType) * (end+1));  //暂时存储新数组
-    while (i<=mid&&j<=end){
+    while (i<=mid&&j<=end){  //对两个数组从第一个元素开始进行比较
         if (arr[i]<arr[j]){
             temp[k] = arr[i];
             k++;i++;
@@ -390,13 +397,20 @@ void merge(ElemType *arr, int start, int mid, int end){
         k++;j++;
     }
 
-    for (j=0, i=start;j<k;j++,i++){
+    for (j=0, i=start;j<k;j++,i++){  //将新数组复制给原数组
         arr[i] = temp[j];
     }
 }
 
 
 void Merge_sort(ElemType *arr, int start, int end){
+    //用递归的方法实现归并排序
+    /*
+     * input：
+     * arr: 待排序的数组
+     * start: 数组的首元素的下标
+     * end：数组的最后一个元素的下标
+     */
     if (start>=end)
         return;  //结束条件
     int mid = (start+end)/2;
