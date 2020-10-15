@@ -54,9 +54,9 @@ int main(){
         printf("    	  13. SaveList       14. LoadList\n");
         printf("          15. Add_to_List    16. RemoveList\n");
         printf("          17. LocateList     18. ShowLists\n");
-        printf("    	  19. listsort       0. Exit\n");
+        printf("    	  19. listsort       20. Load_from_list    0. Exit\n");
         printf("-------------------------------------------------\n");
-        printf("    请选择你的操作[0~19]:");
+        printf("    请选择你的操作[0~20]:");
         scanf("%d",&op);
         switch(op){
             case 1:
@@ -172,7 +172,7 @@ int main(){
                 printf("\n----Add_to_List功能待实现！\n");
                 printf("请输入列表名字：");
                 scanf("%s", ListName);
-                flag=Add_to_List(LISTS, ListName, L);
+                flag=Add_to_Lists(LISTS, ListName, L);
                 if (flag) printf("添加成功！\n");
                 getchar();getchar();
                 break;
@@ -201,6 +201,16 @@ int main(){
             case 19:
                 printf("----sort list\n");
                 Merge_sort(L.elem, 0,L.length-1);
+                getchar();getchar();
+                break;
+            case 20:
+                printf("------switch to list");
+                printf("请输入要切换操作的List的名字");
+                scanf("%s", ListName);
+                flag = Load_from_Lists(LISTS, ListName, L);
+                if (flag) printf("加载成功");
+                else
+                    printf("没有这个线性表！");
                 getchar();getchar();
                 break;
             case 0:

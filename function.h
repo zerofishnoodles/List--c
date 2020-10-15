@@ -280,8 +280,8 @@ status  LoadList(SqList &L,char FileName[])
 }
 
 
-status Add_to_List(LISTS &Lists,char ListName[], SqList L)
-// 在Lists中增加一个名称为ListName的空线性表，从L文件中导入数据
+status Add_to_Lists(LISTS &Lists,char ListName[], SqList L)
+// 在Lists中增加一个名称为ListName的空线性表，从L中导入数据
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
@@ -419,3 +419,24 @@ void Merge_sort(ElemType *arr, int start, int end){
     merge(arr, start, mid, end);
 }
 
+status Load_from_Lists(LISTS &Lists, char ListName[], SqList &L){
+    /*
+     * function：从多线性表导入指定名字的线性表
+     * input:
+     * Lists: 多线性表对象
+     * ListName: 指定的线性表名字
+     * L：线性表
+     */
+    for(int i=0;i<Lists.length;i++){
+        if(strcmp(Lists.elem[i].name, ListName)==0){
+            L.length = Lists.elem[i].L.length;
+            L.listsize = Lists.listsize;
+            L.elem = (ElemType *)malloc(sizeof(ElemType)*L.length);
+            for (int j=0;j<Lists.elem[i].L.length;j++){
+                L.elem[j] = Lists.elem[i].L.elem[j];
+            }
+            return 1;
+        }
+    }
+    return 0;
+}
