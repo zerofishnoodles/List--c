@@ -149,7 +149,8 @@ int main(){
                 break;
             case 12:
                 //printf("\n----ListTraverse功能待实现！\n");
-                if(!ListTraverse(L)) printf("线性表是空表！\n");
+                if(ListTraverse(L)==INFEASIBLE) printf("线性表不存在！\n");
+
                 getchar();getchar();
                 break;
             case 13:
@@ -204,8 +205,8 @@ int main(){
                 getchar();getchar();
                 break;
             case 20:
-                printf("------switch to list");
-                printf("请输入要切换操作的List的名字");
+                printf("------load from lists");
+                printf("请输入要加载的List的名字");
                 scanf("%s", ListName);
                 flag = Load_from_Lists(LISTS, ListName, L);
                 if (flag) printf("加载成功");

@@ -2,9 +2,9 @@
 #include "dev.h"
 #include <cstdlib>
 status InitList(SqList& L)
-// çº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œæž„é€ ä¸€ä¸ªç©ºçš„çº¿æ€§è¡¨ï¼Œè¿”å›žOKï¼Œå¦åˆ™è¿”å›žINFEASIBLEã€‚
+// ÏßÐÔ±íL²»´æÔÚ£¬¹¹ÔìÒ»¸ö¿ÕµÄÏßÐÔ±í£¬·µ»ØOK£¬·ñÔò·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem==NULL) {
         L.elem = (ElemType *) malloc(sizeof(ElemType) * LIST_INIT_SIZE);
@@ -18,9 +18,9 @@ status InitList(SqList& L)
 }
 
 status DestroyList(SqList& L)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼Œé”€æ¯çº¿æ€§è¡¨Lï¼Œé‡Šæ”¾æ•°æ®å…ƒç´ çš„ç©ºé—´ï¼Œè¿”å›žOKï¼Œå¦åˆ™è¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬Ïú»ÙÏßÐÔ±íL£¬ÊÍ·ÅÊý¾ÝÔªËØµÄ¿Õ¼ä£¬·µ»ØOK£¬·ñÔò·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem==NULL){
         return INFEASIBLE;
@@ -35,9 +35,9 @@ status DestroyList(SqList& L)
 }
 
 status ClearList(SqList& L)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼Œåˆ é™¤çº¿æ€§è¡¨Lä¸­çš„æ‰€æœ‰å…ƒç´ ï¼Œè¿”å›žOKï¼Œå¦åˆ™è¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬É¾³ýÏßÐÔ±íLÖÐµÄËùÓÐÔªËØ£¬·µ»ØOK£¬·ñÔò·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -51,9 +51,9 @@ status ClearList(SqList& L)
     /********** End **********/
 }
 status ListEmpty(SqList L)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼Œåˆ¤æ–­çº¿æ€§è¡¨Læ˜¯å¦ä¸ºç©ºï¼Œç©ºå°±è¿”å›žTRUEï¼Œå¦åˆ™è¿”å›žFALSEï¼›å¦‚æžœçº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œè¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬ÅÐ¶ÏÏßÐÔ±íLÊÇ·ñÎª¿Õ£¬¿Õ¾Í·µ»ØTRUE£¬·ñÔò·µ»ØFALSE£»Èç¹ûÏßÐÔ±íL²»´æÔÚ£¬·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -65,9 +65,9 @@ status ListEmpty(SqList L)
 }
 
 status ListLength(SqList L)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼Œè¿”å›žçº¿æ€§è¡¨Lçš„é•¿åº¦ï¼Œå¦åˆ™è¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬·µ»ØÏßÐÔ±íLµÄ³¤¶È£¬·ñÔò·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else return L.length;
@@ -76,9 +76,9 @@ status ListLength(SqList L)
 }
 
 status GetElem(SqList L,int i,ElemType &e)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼ŒèŽ·å–çº¿æ€§è¡¨Lçš„ç¬¬iä¸ªå…ƒç´ ï¼Œä¿å­˜åœ¨eä¸­ï¼Œè¿”å›žOKï¼›å¦‚æžœiä¸åˆæ³•ï¼Œè¿”å›žERRORï¼›å¦‚æžœçº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œè¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬»ñÈ¡ÏßÐÔ±íLµÄµÚi¸öÔªËØ£¬±£´æÔÚeÖÐ£¬·µ»ØOK£»Èç¹ûi²»ºÏ·¨£¬·µ»ØERROR£»Èç¹ûÏßÐÔ±íL²»´æÔÚ£¬·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -94,9 +94,9 @@ status GetElem(SqList L,int i,ElemType &e)
 
 
 status LocateElem(SqList L,ElemType e)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼ŒæŸ¥æ‰¾å…ƒç´ eåœ¨çº¿æ€§è¡¨Lä¸­çš„ä½ç½®åºå·å¹¶è¿”å›žOKï¼›å¦‚æžœeä¸å­˜åœ¨ï¼Œè¿”å›žERRORï¼›å½“çº¿æ€§è¡¨Lä¸å­˜åœ¨æ—¶ï¼Œè¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬²éÕÒÔªËØeÔÚÏßÐÔ±íLÖÐµÄÎ»ÖÃÐòºÅ²¢·µ»ØOK£»Èç¹ûe²»´æÔÚ£¬·µ»ØERROR£»µ±ÏßÐÔ±íL²»´æÔÚÊ±£¬·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -113,9 +113,9 @@ status LocateElem(SqList L,ElemType e)
 
 
 status PriorElem(SqList L,ElemType e,ElemType &pre)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼ŒèŽ·å–çº¿æ€§è¡¨Lä¸­å…ƒç´ eçš„å‰é©±ï¼Œä¿å­˜åœ¨preä¸­ï¼Œè¿”å›žOKï¼›å¦‚æžœæ²¡æœ‰å‰é©±ï¼Œè¿”å›žERRORï¼›å¦‚æžœçº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œè¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬»ñÈ¡ÏßÐÔ±íLÖÐÔªËØeµÄÇ°Çý£¬±£´æÔÚpreÖÐ£¬·µ»ØOK£»Èç¹ûÃ»ÓÐÇ°Çý£¬·µ»ØERROR£»Èç¹ûÏßÐÔ±íL²»´æÔÚ£¬·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -135,9 +135,9 @@ status PriorElem(SqList L,ElemType e,ElemType &pre)
 }
 
 status NextElem(SqList L,ElemType e,ElemType &next)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼ŒèŽ·å–çº¿æ€§è¡¨Lå…ƒç´ eçš„åŽç»§ï¼Œä¿å­˜åœ¨nextä¸­ï¼Œè¿”å›žOKï¼›å¦‚æžœæ²¡æœ‰åŽç»§ï¼Œè¿”å›žERRORï¼›å¦‚æžœçº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œè¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬»ñÈ¡ÏßÐÔ±íLÔªËØeµÄºó¼Ì£¬±£´æÔÚnextÖÐ£¬·µ»ØOK£»Èç¹ûÃ»ÓÐºó¼Ì£¬·µ»ØERROR£»Èç¹ûÏßÐÔ±íL²»´æÔÚ£¬·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -158,9 +158,9 @@ status NextElem(SqList L,ElemType e,ElemType &next)
 
 
 status ListInsert(SqList &L,int i,ElemType e)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼Œå°†å…ƒç´ eæ’å…¥åˆ°çº¿æ€§è¡¨Lçš„ç¬¬iä¸ªå…ƒç´ ä¹‹å‰ï¼Œè¿”å›žOKï¼›å½“æ’å…¥ä½ç½®ä¸æ­£ç¡®æ—¶ï¼Œè¿”å›žERRORï¼›å¦‚æžœçº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œè¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬½«ÔªËØe²åÈëµ½ÏßÐÔ±íLµÄµÚi¸öÔªËØÖ®Ç°£¬·µ»ØOK£»µ±²åÈëÎ»ÖÃ²»ÕýÈ·Ê±£¬·µ»ØERROR£»Èç¹ûÏßÐÔ±íL²»´æÔÚ£¬·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -193,9 +193,9 @@ status ListInsert(SqList &L,int i,ElemType e)
 
 
 status ListDelete(SqList &L,int i,ElemType &e)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼Œåˆ é™¤çº¿æ€§è¡¨Lçš„ç¬¬iä¸ªå…ƒç´ ï¼Œå¹¶ä¿å­˜åœ¨eä¸­ï¼Œè¿”å›žOKï¼›å½“åˆ é™¤ä½ç½®ä¸æ­£ç¡®æ—¶ï¼Œè¿”å›žERRORï¼›å¦‚æžœçº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œè¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬É¾³ýÏßÐÔ±íLµÄµÚi¸öÔªËØ£¬²¢±£´æÔÚeÖÐ£¬·µ»ØOK£»µ±É¾³ýÎ»ÖÃ²»ÕýÈ·Ê±£¬·µ»ØERROR£»Èç¹ûÏßÐÔ±íL²»´æÔÚ£¬·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -213,9 +213,9 @@ status ListDelete(SqList &L,int i,ElemType &e)
 }
 
 status ListTraverse(SqList L)
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼Œä¾æ¬¡æ˜¾ç¤ºçº¿æ€§è¡¨ä¸­çš„å…ƒç´ ï¼Œæ¯ä¸ªå…ƒç´ é—´ç©ºä¸€æ ¼ï¼Œè¿”å›žOKï¼›å¦‚æžœçº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œè¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬ÒÀ´ÎÏÔÊ¾ÏßÐÔ±íÖÐµÄÔªËØ£¬Ã¿¸öÔªËØ¼ä¿ÕÒ»¸ñ£¬·µ»ØOK£»Èç¹ûÏßÐÔ±íL²»´æÔÚ£¬·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
@@ -231,14 +231,19 @@ status ListTraverse(SqList L)
 }
 
 status  SaveList(SqList L,char FileName[])
-// å¦‚æžœçº¿æ€§è¡¨Lå­˜åœ¨ï¼Œå°†çº¿æ€§è¡¨Lçš„çš„å…ƒç´ å†™åˆ°FileNameæ–‡ä»¶ä¸­ï¼Œè¿”å›žOKï¼Œå¦åˆ™è¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL´æÔÚ£¬½«ÏßÐÔ±íLµÄµÄÔªËØÐ´µ½FileNameÎÄ¼þÖÐ£¬·µ»ØOK£¬·ñÔò·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem == NULL) return INFEASIBLE;
     else{
         FILE *fp;
         fp = fopen(FileName, "w");
+//        fp = NULL;
+        if (fp==NULL){
+            printf("ÎÄ¼þÂ·¾¶´íÎó£¡");
+            exit(-1);
+        }
         for(int i=0;i<L.length;i++){
             fputc(L.elem[i],fp);
         }
@@ -249,9 +254,9 @@ status  SaveList(SqList L,char FileName[])
     /********** End **********/
 }
 status  LoadList(SqList &L,char FileName[])
-// å¦‚æžœçº¿æ€§è¡¨Lä¸å­˜åœ¨ï¼Œå°†FileNameæ–‡ä»¶ä¸­çš„æ•°æ®è¯»å…¥åˆ°çº¿æ€§è¡¨Lä¸­ï¼Œè¿”å›žOKï¼Œå¦åˆ™è¿”å›žINFEASIBLEã€‚
+// Èç¹ûÏßÐÔ±íL²»´æÔÚ£¬½«FileNameÎÄ¼þÖÐµÄÊý¾Ý¶ÁÈëµ½ÏßÐÔ±íLÖÐ£¬·µ»ØOK£¬·ñÔò·µ»ØINFEASIBLE¡£
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     if(L.elem != NULL) return INFEASIBLE;
     else{
@@ -260,6 +265,11 @@ status  LoadList(SqList &L,char FileName[])
         L.listsize = LIST_INIT_SIZE;
         FILE *fp;
         fp = fopen(FileName, "r");
+//        fp = NULL;
+        if (fp==NULL){
+            printf("ÎÄ¼þÂ·¾¶´íÎó£¡");
+            exit(-1);
+        }
         int i=0;
         while(!feof(fp)){
             int a = fgetc(fp);
@@ -281,18 +291,18 @@ status  LoadList(SqList &L,char FileName[])
 
 
 status Add_to_Lists(LISTS &Lists,char ListName[], SqList L)
-// åœ¨Listsä¸­å¢žåŠ ä¸€ä¸ªåç§°ä¸ºListNameçš„ç©ºçº¿æ€§è¡¨ï¼Œä»ŽLä¸­å¯¼å…¥æ•°æ®
+// ÔÚListsÖÐÔö¼ÓÒ»¸öÃû³ÆÎªListNameµÄ¿ÕÏßÐÔ±í£¬´ÓLÖÐµ¼ÈëÊý¾Ý
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
-    //åˆå§‹åŒ–
+    //³õÊ¼»¯
     strcpy(Lists.elem[Lists.length].name, ListName);
     Lists.elem[Lists.length].L.elem = (ElemType *)malloc(sizeof(ElemType)*L.length);
     Lists.elem[Lists.length].L.length = 0;
     Lists.elem[Lists.length].L.listsize = LIST_INIT_SIZE;
 
 
-    //æ·»åŠ æ•°æ®
+    //Ìí¼ÓÊý¾Ý
     Lists.elem[Lists.length].L.length= L.length;
     Lists.elem[Lists.length].L.listsize= L.listsize;
     for (int i=0;i<L.length;i++){
@@ -305,9 +315,9 @@ status Add_to_Lists(LISTS &Lists,char ListName[], SqList L)
 
 
 status RemoveList(LISTS &Lists,char ListName[])
-// Listsä¸­åˆ é™¤ä¸€ä¸ªåç§°ä¸ºListNameçš„çº¿æ€§è¡¨
+// ListsÖÐÉ¾³ýÒ»¸öÃû³ÆÎªListNameµÄÏßÐÔ±í
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     for(int i=0;i<Lists.length;i++){
         if(strcmp(Lists.elem[i].name, ListName)==0){
@@ -328,9 +338,9 @@ status RemoveList(LISTS &Lists,char ListName[])
 
 
 int LocateList(LISTS Lists,char ListName[])
-// åœ¨Listsä¸­æŸ¥æ‰¾ä¸€ä¸ªåç§°ä¸ºListNameçš„çº¿æ€§è¡¨ï¼ŒæˆåŠŸè¿”å›žé€»è¾‘åºå·ï¼Œå¦åˆ™è¿”å›ž0
+// ÔÚListsÖÐ²éÕÒÒ»¸öÃû³ÆÎªListNameµÄÏßÐÔ±í£¬³É¹¦·µ»ØÂß¼­ÐòºÅ£¬·ñÔò·µ»Ø0
 {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
     for(int i=0;i<Lists.length;i++){
         if(strcmp(Lists.elem[i].name, ListName)==0){
@@ -356,16 +366,16 @@ void showlist(LISTS LISTS){
 
 void merge(ElemType *arr, int start, int mid, int end){
     /*
-     * functionï¼šå¯¹ä¸¤ä¸ªæ•°ç»„è¿›è¡ŒæŽ’åºï¼Œä¸¤ä¸ªæ•°ç»„è¿žç»­å­˜å‚¨ï¼Œç”±midåˆ†å¼€
+     * function£º¶ÔÁ½¸öÊý×é½øÐÐÅÅÐò£¬Á½¸öÊý×éÁ¬Ðø´æ´¢£¬ÓÉmid·Ö¿ª
      * input:
-     * arr: å¾…æŽ’åºçš„æ•°ç»„
-     * midï¼šæ•°ç»„ä¸­é—´ä½ç½®å…ƒç´ çš„ä¸‹æ ‡
-     * endï¼šæ•°ç»„æœ«å°¾å…ƒç´ çš„ä¸‹æ ‡
+     * arr: ´ýÅÅÐòµÄÊý×é
+     * mid£ºÊý×éÖÐ¼äÎ»ÖÃÔªËØµÄÏÂ±ê
+     * end£ºÊý×éÄ©Î²ÔªËØµÄÏÂ±ê
      */
     int i=start,j=mid+1,k=0;
     ElemType *temp;
-    temp = (ElemType *)malloc(sizeof(ElemType) * (end+1));  //æš‚æ—¶å­˜å‚¨æ–°æ•°ç»„
-    while (i<=mid&&j<=end){  //å¯¹ä¸¤ä¸ªæ•°ç»„ä»Žç¬¬ä¸€ä¸ªå…ƒç´ å¼€å§‹è¿›è¡Œæ¯”è¾ƒ
+    temp = (ElemType *)malloc(sizeof(ElemType) * (end+1));  //ÔÝÊ±´æ´¢ÐÂÊý×é
+    while (i<=mid&&j<=end){  //¶ÔÁ½¸öÊý×é´ÓµÚÒ»¸öÔªËØ¿ªÊ¼½øÐÐ±È½Ï
         if (arr[i]<arr[j]){
             temp[k] = arr[i];
             k++;i++;
@@ -397,22 +407,22 @@ void merge(ElemType *arr, int start, int mid, int end){
         k++;j++;
     }
 
-    for (j=0, i=start;j<k;j++,i++){  //å°†æ–°æ•°ç»„å¤åˆ¶ç»™åŽŸæ•°ç»„
+    for (j=0, i=start;j<k;j++,i++){  //½«ÐÂÊý×é¸´ÖÆ¸øÔ­Êý×é
         arr[i] = temp[j];
     }
 }
 
 
 void Merge_sort(ElemType *arr, int start, int end){
-    //ç”¨é€’å½’çš„æ–¹æ³•å®žçŽ°å½’å¹¶æŽ’åº
+    //ÓÃµÝ¹éµÄ·½·¨ÊµÏÖ¹é²¢ÅÅÐò
     /*
-     * inputï¼š
-     * arr: å¾…æŽ’åºçš„æ•°ç»„
-     * start: æ•°ç»„çš„é¦–å…ƒç´ çš„ä¸‹æ ‡
-     * endï¼šæ•°ç»„çš„æœ€åŽä¸€ä¸ªå…ƒç´ çš„ä¸‹æ ‡
+     * input£º
+     * arr: ´ýÅÅÐòµÄÊý×é
+     * start: Êý×éµÄÊ×ÔªËØµÄÏÂ±ê
+     * end£ºÊý×éµÄ×îºóÒ»¸öÔªËØµÄÏÂ±ê
      */
     if (start>=end)
-        return;  //ç»“æŸæ¡ä»¶
+        return;  //½áÊøÌõ¼þ
     int mid = (start+end)/2;
     Merge_sort(arr, start, mid);
     Merge_sort(arr, mid+1, end);
@@ -421,11 +431,11 @@ void Merge_sort(ElemType *arr, int start, int end){
 
 status Load_from_Lists(LISTS &Lists, char ListName[], SqList &L){
     /*
-     * functionï¼šä»Žå¤šçº¿æ€§è¡¨å¯¼å…¥æŒ‡å®šåå­—çš„çº¿æ€§è¡¨
+     * function£º´Ó¶àÏßÐÔ±íµ¼ÈëÖ¸¶¨Ãû×ÖµÄÏßÐÔ±í
      * input:
-     * Lists: å¤šçº¿æ€§è¡¨å¯¹è±¡
-     * ListName: æŒ‡å®šçš„çº¿æ€§è¡¨åå­—
-     * Lï¼šçº¿æ€§è¡¨
+     * Lists: ¶àÏßÐÔ±í¶ÔÏó
+     * ListName: Ö¸¶¨µÄÏßÐÔ±íÃû×Ö
+     * L£ºÏßÐÔ±í
      */
     for(int i=0;i<Lists.length;i++){
         if(strcmp(Lists.elem[i].name, ListName)==0){
